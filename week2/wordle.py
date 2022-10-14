@@ -1,9 +1,17 @@
 if __name__ == "__main__":
     # user input
-    user_input = input
+    user_input = input()
 
     # specify an answer
-    answer = "apple"
+    f = open("words.txt", "r")
+    dictionary = f.read().splitlines()
+    f.close()
+    answer = random.sample(dictionary,1)[0]
+    print(answer)
+
+    if not user_input in dictionary:
+        print("Please input an valid word")
+        exit()
 
     #compare user input and answer
     for i in range(len(user_input)):
